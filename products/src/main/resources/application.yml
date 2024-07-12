@@ -1,0 +1,30 @@
+spring:
+
+  application:
+    name: Products
+  datasource:
+    url: jdbc:mysql://mysql:3306/productdb?createDatabaseIfNotExist=true
+    username: "root"
+    password: "my-secret-pw"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cloud:
+    config:
+      uri: http://config-server:8888
+      name: Products
+      profile: dev
+      label: main
+
+
+
+
+    :
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
